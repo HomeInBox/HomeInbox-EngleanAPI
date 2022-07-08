@@ -1,4 +1,6 @@
-﻿using HomeInbox_EngleanAPI.Handle.VocabularyHandle;
+﻿using Extention;
+using HomeInbox_EngleanAPI.Database;
+using HomeInbox_EngleanAPI.Handle.VocabularyHandle;
 using HomeInbox_EngleanAPI.model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +17,7 @@ namespace HomeInbox_EngleanAPI.Controllers
         [HttpPost]
         public async Task<ResponseResaultModel<SearchVocabularyResponse>> SearchVocabulary(SearchVocabularyRequest request)
         {
+
             return null;
         }
     }

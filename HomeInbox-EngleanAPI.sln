@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeInbox-EngleanAPI", "HomeInbox-EngleanAPI\HomeInbox-EngleanAPI.csproj", "{2D2900F5-C5D3-4D6F-AEBC-B21ABC7E3580}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeInbox-EngleanAPI", "HomeInbox-EngleanAPI\HomeInbox-EngleanAPI.csproj", "{2D2900F5-C5D3-4D6F-AEBC-B21ABC7E3580}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extention", "Extention\Extention.csproj", "{76DA950E-78E0-42E5-BBC9-97B926906113}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{2D2900F5-C5D3-4D6F-AEBC-B21ABC7E3580}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D2900F5-C5D3-4D6F-AEBC-B21ABC7E3580}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D2900F5-C5D3-4D6F-AEBC-B21ABC7E3580}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76DA950E-78E0-42E5-BBC9-97B926906113}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76DA950E-78E0-42E5-BBC9-97B926906113}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76DA950E-78E0-42E5-BBC9-97B926906113}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76DA950E-78E0-42E5-BBC9-97B926906113}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

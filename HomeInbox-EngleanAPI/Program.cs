@@ -78,6 +78,7 @@ builder.Services.AddAuthentication(p =>
     };
 });
 builder.Services.AddTransient<Appsetting, Appsetting>();
+
 builder.Services.AddDbContext<DbDatacontext>(options => options.UseSqlServer(builder.Configuration["ConnectionStrings:DbDatacontext"]));
 
 

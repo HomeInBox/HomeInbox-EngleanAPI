@@ -13,5 +13,26 @@ namespace HomeInbox_EngleanAPI.Database.DatabaseModel
         public string VOCABULARYTYPE { get; set; }
         public DateTime? UPDATE_DATE { get; set; }
         public DateTime? CREATE_DATE { get; set; }
+
+        public static Vocabulary create(string vocabulary, string meaning, string vocabularytype)
+        {
+            return new Vocabulary
+            {
+                VOCABULARY = vocabulary,
+                MEANING = meaning,
+                VOCABULARYTYPE = vocabularytype,
+                CREATE_DATE = DateTime.Now,
+                UPDATE_DATE = DateTime.Now
+            };
+        }
+
+        public void update(string vocabulary, string meaning, string vocabularytype)
+        {
+            VOCABULARY = vocabulary;
+            MEANING = meaning;
+            VOCABULARYTYPE = vocabularytype;
+            CREATE_DATE = DateTime.Now;
+            UPDATE_DATE = DateTime.Now;
+        }
     }
 }
