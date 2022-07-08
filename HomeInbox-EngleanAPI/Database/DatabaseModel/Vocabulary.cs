@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace HomeInbox_EngleanAPI.Database.DatabaseMdoel
+namespace HomeInbox_EngleanAPI.Database.DatabaseModel
 {
     public class Vocabulary
     {
@@ -11,5 +11,7 @@ namespace HomeInbox_EngleanAPI.Database.DatabaseMdoel
         public string VOCABULARY { get; set; }
         public string MEANING { get; set; }
         public string VOCABULARYTYPE { get; set; }
+        public DateTime? UPDATE_DATE { get; set; }
+        public DateTime? CREATE_DATE { get; set; }
     }
 }
