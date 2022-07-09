@@ -79,7 +79,7 @@ builder.Services.AddAuthentication(p =>
 });
 builder.Services.AddTransient<Appsetting, Appsetting>();
 
-builder.Services.AddDbContext<DbDatacontext>(options => options.UseSqlServer(builder.Configuration["ConnectionStrings:DbDatacontext"]));
+builder.Services.AddDbContext<DbDatacontext>(options => options.UseSqlServer(builder.Configuration["ConnectionStrings:DbDatacontext"]).UseLazyLoadingProxies());
 
 
 var app = builder.Build();

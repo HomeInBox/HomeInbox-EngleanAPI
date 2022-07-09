@@ -6,5 +6,10 @@
         {
             return !string.IsNullOrEmpty(param);
         }
+
+        public static bool IsNullOrEmpty(this string param)
+        {
+            return string.IsNullOrEmpty(param);
+        }
     }
 }

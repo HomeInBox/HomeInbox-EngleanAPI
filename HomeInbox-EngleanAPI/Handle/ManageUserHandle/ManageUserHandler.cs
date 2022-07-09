@@ -1,4 +1,5 @@
-﻿using HomeInbox_EngleanAPI.Database;
+﻿using Extention;
+using HomeInbox_EngleanAPI.Database;
 using HomeInbox_EngleanAPI.Database.DatabaseModel;
 using HomeInbox_EngleanAPI.model;
 using MediatR;
@@ -13,10 +14,33 @@ namespace HomeInbox_EngleanAPI.Handle.ManageUserHandle
         }
         public async Task<ResponseResaultModel<ManageUserResponse>> Handle(ManageUserRequest request,CancellationToken cancellationToken)
         {
+            var test = _db.userlogins;
             ResponseResaultModel<ManageUserResponse> resault = new ResponseResaultModel<ManageUserResponse>();
-             var data = userlogin.createa(request.Username,request.Password);
-
-            _db.Add(data);
+            resault.ErrorMessage = new List<string>();
+            var createUserlogin = userlogin.createa(request.Username, request.Password);
+            if (request.Username.IsNullOrEmpty())
+            {
+                resault.ErrorMessage.Add("invalid Username");
+            }
+            else if (request.Password.IsNullOrEmpty())
+            {
+                resault.ErrorMessage.Add("invalid Password");
+            }
+            else if (request.Username.IsNullOrEmpty())
+            {
+                resault.ErrorMessage.Add("invalid Username");
+            }
+            else if (request.Password.IsNullOrEmpty())
+            {
+                resault.ErrorMessage.Add("invalid Password");
+            }
+            else
+            {
+                _db.Add(createUserlogin);
+                var createuserprofile = UserProfile.create(createUserlogin.AGGREGATEID, request.Name, request.Email, request.phoneNumber);
+                _db.Add(createuserprofile);
+            }
+            
             _db.SaveChanges();
 
             return resault;

@@ -9,5 +9,6 @@ namespace HomeInbox_EngleanAPI.Database
 
         public DbSet<Vocabulary> vocabularies { get; set; }
         public DbSet<userlogin> userlogins { get; set; }
+        public DbSet<UserProfile> userProfiles { get; set; }
     }
 }

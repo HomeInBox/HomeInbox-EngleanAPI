@@ -5,16 +5,19 @@ namespace HomeInbox_EngleanAPI.Database.DatabaseModel
 {
     public class userlogin
     {
+        public userlogin() {
+
+            AGGREGATEID = Guid.NewGuid();
+        }
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid AGGREGATEID { get; set; }
         public string USERNAME { get; set; }
         public string PASSWORD { get; set; }
         public DateTime? UPDATE_DATE { get; set; }
         public DateTime? CREATE_DATE { get; set; }
+        public virtual UserProfile UserProfile { get; set; }
 
-
-        public static userlogin createa(string username, string password)
+    public static userlogin createa(string username, string password)
         {
             return new userlogin {
                 USERNAME = username,
