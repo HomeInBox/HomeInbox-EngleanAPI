@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HomeInbox_EngleanAPI.Migrations
 {
     [DbContext(typeof(DbDatacontext))]
-    [Migration("20220709043517_createdatabase")]
-    partial class createdatabase
+    [Migration("20220721100054_createDatabase")]
+    partial class createDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,6 +23,38 @@ namespace HomeInbox_EngleanAPI.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("HomeInbox_EngleanAPI.Database.DatabaseModel.TESTSCORE", b =>
+                {
+                    b.Property<Guid>("AGGREGATEID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AGGREGATEIDUSERPROFILE")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CREATE_DATE")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("NO")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SCORE")
+                        .HasColumnType("int");
+
+                    b.Property<string>("STATUS")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UPDATE_DATE")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("AGGREGATEID");
+
+                    b.HasIndex("AGGREGATEIDUSERPROFILE");
+
+                    b.ToTable("TESTSCOREs");
+                });
 
             modelBuilder.Entity("HomeInbox_EngleanAPI.Database.DatabaseModel.userlogin", b =>
                 {
@@ -113,6 +145,17 @@ namespace HomeInbox_EngleanAPI.Migrations
                     b.ToTable("vocabularies");
                 });
 
+            modelBuilder.Entity("HomeInbox_EngleanAPI.Database.DatabaseModel.TESTSCORE", b =>
+                {
+                    b.HasOne("HomeInbox_EngleanAPI.Database.DatabaseModel.UserProfile", "UserProfile")
+                        .WithMany("TESTSCOREs")
+                        .HasForeignKey("AGGREGATEIDUSERPROFILE")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("UserProfile");
+                });
+
             modelBuilder.Entity("HomeInbox_EngleanAPI.Database.DatabaseModel.UserProfile", b =>
                 {
                     b.HasOne("HomeInbox_EngleanAPI.Database.DatabaseModel.userlogin", "userlogin")
@@ -128,6 +171,11 @@ namespace HomeInbox_EngleanAPI.Migrations
                 {
                     b.Navigation("UserProfile")
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("HomeInbox_EngleanAPI.Database.DatabaseModel.UserProfile", b =>
+                {
+                    b.Navigation("TESTSCOREs");
                 });
 #pragma warning restore 612, 618
         }

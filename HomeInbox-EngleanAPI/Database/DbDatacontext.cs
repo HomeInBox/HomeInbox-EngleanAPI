@@ -7,8 +7,9 @@ namespace HomeInbox_EngleanAPI.Database
     {
         public DbDatacontext(DbContextOptions<DbDatacontext> options) : base(options) { }
 
-        public DbSet<Vocabulary> vocabularies { get; set; }
-        public DbSet<userlogin> userlogins { get; set; }
-        public DbSet<UserProfile> userProfiles { get; set; }
+        public DbSet<VOCABULARY> VOCABULARYs { get; set; }
+        public DbSet<USER_LOGIN> USER_LOGINs { get; set; }
+        public DbSet<USER_PROFILE> USER_PROFILEs { get; set; }
+        public DbSet<TESTSCORE> TESTSCOREs { get; set; }
     }
 }

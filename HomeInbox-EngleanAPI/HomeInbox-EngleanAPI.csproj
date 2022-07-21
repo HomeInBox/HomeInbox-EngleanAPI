@@ -31,4 +31,8 @@
     <ProjectReference Include="..\Extention\Extention.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

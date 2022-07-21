@@ -1,11 +1,12 @@
 ﻿using HomeInbox_EngleanAPI.Handle.ManageUserHandle;
 using HomeInbox_EngleanAPI.model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HomeInbox_EngleanAPI.Controllers
 {
-    
+    [Authorize]
     [Route("api/[controller]/[action]")]
     [ApiController]
     public class ManageUserController : MvcController

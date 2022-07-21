@@ -14,10 +14,9 @@ namespace HomeInbox_EngleanAPI.Handle.ManageUserHandle
         }
         public async Task<ResponseResaultModel<ManageUserResponse>> Handle(ManageUserRequest request,CancellationToken cancellationToken)
         {
-            var test = _db.userlogins;
             ResponseResaultModel<ManageUserResponse> resault = new ResponseResaultModel<ManageUserResponse>();
             resault.ErrorMessage = new List<string>();
-            var createUserlogin = userlogin.createa(request.Username, request.Password);
+            var createUserlogin = USER_LOGIN.create(request.Username, request.Password);
             if (request.Username.IsNullOrEmpty())
             {
                 resault.ErrorMessage.Add("invalid Username");
@@ -37,7 +36,7 @@ namespace HomeInbox_EngleanAPI.Handle.ManageUserHandle
             else
             {
                 _db.Add(createUserlogin);
-                var createuserprofile = UserProfile.create(createUserlogin.AGGREGATEID, request.Name, request.Email, request.phoneNumber);
+                var createuserprofile = USER_PROFILE.create(createUserlogin.AGGREGATEID, request.Name, request.Email, request.phoneNumber);
                 _db.Add(createuserprofile);
             }
             

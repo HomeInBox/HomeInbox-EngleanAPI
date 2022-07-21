@@ -2,9 +2,9 @@
 using System.ComponentModel.DataAnnotations.Schema;
 namespace HomeInbox_EngleanAPI.Database.DatabaseModel
 {
-    public class UserProfile
+    public class USER_PROFILE
     {
-        public UserProfile()
+        public USER_PROFILE()
         {
             AGGREGATEID = Guid.NewGuid();
         }
@@ -16,13 +16,14 @@ namespace HomeInbox_EngleanAPI.Database.DatabaseModel
 
         [ForeignKey("userlogin")]
         public Guid AGGREGATEIDUSERLOGIN { get; set; }
-        public virtual userlogin userlogin { get; set; }
+        public virtual USER_LOGIN userlogin { get; set; }
+        public virtual List<TESTSCORE> TESTSCOREs { get; set; } 
         public DateTime? UPDATE_DATE { get; set; }
         public DateTime? CREATE_DATE { get; set; }
 
-        public static UserProfile create(Guid aggid,string name,string mail,string phonenumber)
+        public static USER_PROFILE create(Guid aggid,string name,string mail,string phonenumber)
         {
-            return new UserProfile
+            return new USER_PROFILE
             {
                 NAME = name,
                 MAIL = mail,

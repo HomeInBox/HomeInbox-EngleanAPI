@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HomeInbox_EngleanAPI.Database.DatabaseModel
 {
-    public class userlogin
+    public class USER_LOGIN
     {
-        public userlogin() {
+        public USER_LOGIN() {
 
             AGGREGATEID = Guid.NewGuid();
         }
@@ -15,11 +15,12 @@ namespace HomeInbox_EngleanAPI.Database.DatabaseModel
         public string PASSWORD { get; set; }
         public DateTime? UPDATE_DATE { get; set; }
         public DateTime? CREATE_DATE { get; set; }
-        public virtual UserProfile UserProfile { get; set; }
+        public virtual USER_PROFILE UserProfile { get; set; }
 
-    public static userlogin createa(string username, string password)
+    public static USER_LOGIN create(string username, string password)
         {
-            return new userlogin {
+            return new USER_LOGIN
+            {
                 USERNAME = username,
                 PASSWORD = password,
                 CREATE_DATE = DateTime.Now,
